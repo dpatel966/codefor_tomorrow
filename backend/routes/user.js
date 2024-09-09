@@ -6,10 +6,11 @@ const { User } = require('../models');
 const { generateToken, verifyToken } = require('./utils/jwt');
 
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.ethereal.email',
+    port: 587,
     auth: {
-        user: 'dpatel966@gmail.com',
-        pass: 'deepakp966@'
+       user: 'jasmin92@ethereal.email',
+        pass: 'gqbbSQUQhcpJwpPPhd'
     }
 });
 
@@ -135,7 +136,7 @@ router.post('/forgot-password', async (req, res) => {
         const resetLink = `http://localhost:3000/reset-password/${resetToken}`; // Update as needed
 
         const mailOptions = {
-            from: 'dpatel966@gmail.com',
+            from: 'deepak',
             to: user.email,
             subject: 'Password Reset',
             text: `You requested a password reset. Click the link below to reset your password:\n\n${resetLink}\n\nIf you did not request this, please ignore this email.`
